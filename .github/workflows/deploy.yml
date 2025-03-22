@@ -25,6 +25,11 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./build  # Ensure this path matches your build output folder
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -32,8 +37,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v3
-      
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
