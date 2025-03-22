@@ -1,64 +1,12 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-
-const Portfolio = () => {
-  return (
-    <div className="min-h-screen bg-gray-100 p-8">
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="text-center mb-8"
-      >
-        <img
-          src="/path/to/profile.jpg"
-          alt="Profile"
-          className="w-40 h-40 mx-auto rounded-full border-4 border-gray-300 shadow-md"
-        />
-        <h1 className="text-4xl font-bold mt-4">Daniyal Qureshi</h1>
-        <p className="text-lg text-gray-600">SQA Engineer | Test Automation Specialist | Game Developer</p>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-        className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
-      >
-        <Card className="bg-white shadow-lg rounded-2xl">
-          <CardContent>
-            <h2 className="text-2xl font-semibold">Job Experiences</h2>
-            <p>USEA Company - Software Tester (Manual Testing)</p>
-            <p>STC Play - QA Tester (Automation with Selenium and Playwright)</p>
-            <p>Streamflix App - Automation with Appium and Espresso</p>
-            <p>Upwork - Freelance SQA Engineer</p>
-          </CardContent>
-        </Card>
-
-        <Card className="bg-white shadow-lg rounded-2xl">
-          <CardContent>
-            <h2 className="text-2xl font-semibold">Projects</h2>
-            <p>STC Play - Web and Mobile Testing</p>
-            <p>Streamflix App - Automation with Appium and Espresso</p>
-            <p>MFX - Automation with Playwright</p>
-            <p>Game Development - Unity (C#)</p>
-          </CardContent>
-        </Card>
-
-        <Card className="bg-white shadow-lg rounded-2xl">
-          <CardContent>
-            <h2 className="text-2xl font-semibold">Skills & Courses</h2>
-            <p>Selenium, Playwright, Appium, Espresso</p>
-            <p>SpecFlow, BDD, JMeter</p>
-            <p>Unity (C#), Jenkins, Git</p>
-            <p>Performance Testing, Manual Testing</p>
-          </CardContent>
-        </Card>
-      </motion.div>
-    </div>
-  );
-};
-
-export default Portfolio;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniyal Qureshi - Portfolio</title>
+    <script type="module" src="/src/main.jsx"></script>
+</head>
+<body class="bg-gray-100">
+    <div id="root"></div>
+</body>
+</html>
