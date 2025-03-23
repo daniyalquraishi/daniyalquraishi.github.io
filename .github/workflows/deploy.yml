@@ -19,7 +19,7 @@ jobs:
           node-version: '20'  # or your preferred Node version
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-files
           path: dist  # or your build output directory
