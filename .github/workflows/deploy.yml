@@ -1,28 +1,33 @@
-name: Build and Deploy
+name: Deploy Vite App to GitHub Pages
 
 on:
   push:
-    branches: [ main ]  # Triggers on push to main
+    branches:
+      - main  # Runs on push to the main branch
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20'
 
-      - name: Install dependencies
-        run: npm install  # Install Vite and other dependencies
+      - name: Install Dependencies
+        run: npm ci  # Ensures a clean install
 
-      - name: Build project
-        run: npm run build  # This generates the `dist/` folder
+      - name: Fix Vite Permissions
+        run: chmod +x node_modules/.bin/vite || true
+
+      - name: Build Vite App
+        run: npx vite build  # Ensures Vite runs even if it's not globally installed
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages  # Deploy to GitHub Pages branch
-          folder: dist  # Use the built `dist` folder
+          branch: gh-pages  # Deploy to `gh-pages` branch
+          folder: dist  # Deploy only the built files
