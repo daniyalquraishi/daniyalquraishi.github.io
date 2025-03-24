@@ -5,7 +5,9 @@
     "scripts": {
         "dev": "vite",
         "build": "vite build",
-        "serve": "vite preview"
+        "serve": "vite preview",
+        "deploy": "npm run build && gh-pages -d dist"
+
     },
     "devDependencies": {
         "@vitejs/plugin-react": "^4.3.4",
