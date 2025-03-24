@@ -3,7 +3,10 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
     plugins: [react()],
-    base: '/daniyalquraishi.github.io/',
+    base: '/daniyalquraishi.github.io/', // Ensure this matches your GitHub repository name
+    build: {
+        outDir: 'dist' // Ensure Vite builds to the correct directory
+    },
     server: {
         open: true,
     },
