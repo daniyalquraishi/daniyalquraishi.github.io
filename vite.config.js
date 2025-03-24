@@ -14,6 +14,9 @@ console.log('📂 Assets Directory:', assetsDirectory);
 
 export default defineConfig({
   plugins: [react()],
+  resolve: {
+    extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json'], // Ensure `.jsx` is properly resolved
+  },
   base: basePath, // ✅ Ensures relative paths in index.html
   build: {
     outDir: 'dist',
