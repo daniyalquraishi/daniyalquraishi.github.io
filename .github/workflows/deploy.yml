@@ -24,7 +24,7 @@ jobs:
         run: chmod +x node_modules/.bin/vite || true
 
       - name: Build Vite App
-        run: npx vite build  # Ensures Vite runs even if it's not globally installed
+        run: npx vite build  # Runs vite using npx
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
