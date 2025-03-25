@@ -235,20 +235,37 @@ function App() {
                             effect={'coverflow'}
                             grabCursor={true}
                             centeredSlides={true}
-                            slidesPerView={3}
+                            slidesPerView={'auto'}
+                            initialSlide={2}
                             loop={true}
-                            loopedSlides={2}
                             coverflowEffect={{
-                                rotate: 0,
+                                rotate: 20,
                                 stretch: 0,
-                                depth: 100,
-                                modifier: 2.5,
-                                slideShadows: false,
+                                depth: 200,
+                                modifier: 1,
+                                slideShadows: true,
                             }}
-                            pagination={{ clickable: true }}
+                            pagination={{
+                                clickable: true,
+                                dynamicBullets: true,
+                            }}
                             navigation={true}
                             modules={[EffectCoverflow, Pagination, Navigation]}
                             className="mySwiper"
+                            breakpoints={{
+                                320: {
+                                    slidesPerView: 1,
+                                    spaceBetween: 20
+                                },
+                                640: {
+                                    slidesPerView: 2,
+                                    spaceBetween: 30
+                                },
+                                1024: {
+                                    slidesPerView: 3,
+                                    spaceBetween: 40
+                                }
+                            }}
                         >
                             <SwiperSlide>
                                 <ProjectCard
@@ -463,18 +480,31 @@ function App() {
                 </div>
             </div>
 
+            {/* Scroll to Top Button */}
             <AnimatePresence>
                 {showScrollTop && (
                     <motion.button
-                        initial={{ opacity: 0, scale: 0.5 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.5 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 20 }}
                         onClick={scrollToTop}
-                        className="fixed bottom-8 right-8 bg-blue-500 text-white p-3 rounded-full shadow-lg hover:bg-blue-600 transition-colors duration-300 z-50"
+                        className="fixed bottom-8 right-8 p-2.5 rounded-full z-50 bg-white/80 backdrop-blur-sm border border-gray-200 shadow-lg group hover:bg-white transition-all duration-300"
                         whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
+                        whileTap={{ scale: 0.95 }}
                     >
-                        <FaArrowUp className="w-6 h-6" />
+                        <motion.div
+                            className="relative"
+                            animate={{
+                                y: [2, -1, 2]
+                            }}
+                            transition={{
+                                duration: 2.5,
+                                repeat: Infinity,
+                                ease: "easeInOut"
+                            }}
+                        >
+                            <FaArrowUp className="w-4 h-4 text-gray-800 group-hover:text-blue-600 transition-colors duration-300" />
+                        </motion.div>
                     </motion.button>
                 )}
             </AnimatePresence>
