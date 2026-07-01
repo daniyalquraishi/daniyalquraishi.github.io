@@ -4,57 +4,58 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
     FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaDownload,
     FaArrowUp, FaCode, FaRobot, FaMobileAlt, FaServer, FaInfinity,
-    FaCheckCircle, FaCertificate, FaGraduationCap, FaBriefcase
+    FaCheckCircle, FaCertificate, FaGraduationCap, FaBriefcase, FaGamepad,
+    FaClipboardCheck
 } from 'react-icons/fa';
 import { HiSparkles } from 'react-icons/hi';
 
 /* ------------------------------------------------------------------ */
-/*  DATA — sourced directly from Daniyal's résumé                      */
+/*  DATA — sourced directly from Daniyal's résumé & LinkedIn           */
 /* ------------------------------------------------------------------ */
 
 const STATS = [
-    { value: "4+", label: "Years Experience" },
-    { value: "25%", label: "Faster Test Cycles" },
+    { value: "5+", label: "Years Experience" },
+    { value: "10+", label: "Products Tested" },
+    { value: "11", label: "Certifications" },
     { value: "3", label: "Platforms Automated" },
-    { value: "8", label: "Certifications" },
 ];
 
 const SKILL_GROUPS = [
     {
         icon: FaCode,
-        title: "Automation Frameworks",
+        title: "QA Automation",
         accent: "from-cyan-400 to-blue-500",
-        skills: ["Selenium", "Playwright", "Cypress", "Appium", "Katalon Studio", "XCTest"],
+        skills: ["Selenium", "Playwright", "Cypress", "Appium", "Katalon Studio", "XCTest", "Framework Design", "Page Object Model"],
     },
     {
         icon: FaRobot,
         title: "AI-Augmented Testing",
         accent: "from-violet-400 to-fuchsia-500",
-        skills: ["Claude Code", "LLM Test Generation", "Prompt Engineering", "Autonomous E2E"],
+        skills: ["Claude Code", "LLM Test Generation", "Prompt Engineering", "Autonomous E2E Suites", "Self-Healing Tests"],
     },
     {
         icon: FaServer,
-        title: "API & Performance",
+        title: "API & Performance Testing",
         accent: "from-emerald-400 to-teal-500",
-        skills: ["REST Assured", "Postman", "JMeter", "RabbitMQ"],
+        skills: ["REST Assured", "Postman", "JMeter", "RabbitMQ", "Load & Stress Testing", "API Security"],
     },
     {
-        icon: FaCode,
-        title: "Programming",
-        accent: "from-amber-400 to-orange-500",
-        skills: ["Java", "JavaScript", "TypeScript", "Python", "Groovy", "SQL"],
+        icon: FaClipboardCheck,
+        title: "Manual & Quality Engineering",
+        accent: "from-rose-400 to-pink-500",
+        skills: ["Manual Testing", "Exploratory Testing", "Regression Testing", "Test Strategy & Planning", "Release Validation", "Defect Management"],
     },
     {
         icon: FaInfinity,
         title: "CI/CD & DevOps",
         accent: "from-sky-400 to-indigo-500",
-        skills: ["Jenkins", "GitLab CI", "Git", "Docker"],
+        skills: ["Jenkins", "GitLab CI", "Git", "Docker", "Pipeline Integration", "Continuous Testing"],
     },
     {
         icon: FaMobileAlt,
-        title: "Methodologies",
-        accent: "from-rose-400 to-pink-500",
-        skills: ["Agile / Scrum", "BDD", "TDD", "Test Strategy", "Page Object Model"],
+        title: "Programming & Methodologies",
+        accent: "from-amber-400 to-orange-500",
+        skills: ["Java", "JavaScript", "TypeScript", "Python", "SQL", "Agile / Scrum", "BDD / TDD"],
     },
 ];
 
@@ -64,11 +65,23 @@ const EXPERIENCE = [
         company: "Next Generation Innovation",
         period: "Jun 2024 – Present",
         points: [
-            "Spearheaded an AI-augmented testing initiative pairing Claude Code with Playwright to autonomously author, maintain and run end-to-end tests in CI/CD — slashing manual scripting effort and turnaround time.",
+            "Spearheaded an AI-augmented testing initiative to autonomously author, maintain and run end-to-end tests in CI/CD — slashing manual scripting effort and turnaround time.",
             "Designed reusable AI prompt templates enforcing Page Object Model, BDD/Cucumber and Allure standards, cutting onboarding time for new engineers.",
-            "Engineered Selenium-based automation for business-critical web workflows, accelerating regression cycles and sharpening execution accuracy.",
-            "Scaled Android automation with Appium and hardened backend coverage with comprehensive REST Assured API suites.",
+            "Engineered Selenium-based automation for business-critical web workflows, accelerating regression cycles.",
+            "Scaled Android automation with Appium and hardened backend coverage with REST Assured API suites.",
             "Embedded automated tests into Jenkins and GitLab CI pipelines, shrinking feedback loops for faster, safer deployments.",
+        ],
+    },
+    {
+        title: "QA Automation Engineer",
+        company: "USEA Global · Contract, Remote (Singapore)",
+        period: "Aug 2022 – Jun 2024",
+        points: [
+            "Spearheaded end-to-end test automation for web and backend services, ensuring high-quality releases.",
+            "Managed and maintained the CI/CD pipeline for automation code using Jenkins.",
+            "Conducted performance testing with JMeter to validate system stability under load.",
+            "Oversaw and validated all release cycles, ensuring seamless delivery with minimal rollback incidents.",
+            "Collaborated with dev and product teams to resolve production issues, improving deployment success and system reliability.",
         ],
     },
     {
@@ -77,7 +90,7 @@ const EXPERIENCE = [
         period: "Feb 2024 – Jun 2024",
         points: [
             "Delivered cross-platform automated coverage for Android, iOS and web using Appium, Selenium and XCTest.",
-            "Partnered with cross-functional teams to shape end-to-end test strategies tightly aligned to product goals.",
+            "Partnered with cross-functional teams to shape end-to-end test strategies aligned to product goals.",
         ],
     },
     {
@@ -85,7 +98,7 @@ const EXPERIENCE = [
         company: "Co-ventech",
         period: "Nov 2022 – Feb 2024",
         points: [
-            "Drove cross-platform test automation with Cypress, Selenium, Playwright and Appium, expanding coverage across web and mobile.",
+            "Drove cross-platform test automation with Cypress, Selenium, Playwright and Appium across web and mobile.",
             "Strengthened backend stability through targeted API and performance testing with Postman and JMeter.",
         ],
     },
@@ -103,57 +116,82 @@ const EXPERIENCE = [
 const PROJECTS = [
     {
         title: "STC Play",
-        description: "Gaming platform with comprehensive iOS automation and backend API test infrastructure.",
-        tech: ["Appium", "REST Assured", "iOS / XCTest"],
+        role: "QA Automation & Testing",
+        description: "Gaming & shop platform — automated API tests with REST Assured, performance testing with JMeter (dynamic token handling), and Selenium web automation in a Spring Boot framework.",
+        tech: ["REST Assured", "JMeter", "Selenium", "Spring Boot"],
         accent: "from-blue-500/20 to-cyan-500/20",
         ring: "hover:border-cyan-400/50",
     },
     {
+        title: "STC TV",
+        role: "QA Automation & Testing",
+        description: "Streaming platform — backend API testing, database validation for data consistency, and RabbitMQ message-queue verification to ensure reliable message flow.",
+        tech: ["REST Assured", "RabbitMQ", "SQL", "Log Analysis"],
+        accent: "from-indigo-500/20 to-blue-500/20",
+        ring: "hover:border-indigo-400/50",
+    },
+    {
         title: "Hyre",
-        description: "Service marketplace with cross-platform automation coverage across mobile and web.",
-        tech: ["Appium", "Playwright", "Java", "JavaScript"],
+        role: "QA Automation & Testing",
+        description: "Freelance marketplace — designed automated test suites for Android, iOS and web, prioritizing automation by risk and usage to streamline testing cycles.",
+        tech: ["Appium", "Selenium", "XCTest", "Playwright"],
         accent: "from-violet-500/20 to-fuchsia-500/20",
         ring: "hover:border-fuchsia-400/50",
     },
     {
         title: "micro1",
-        description: "AI recruiting platform — end-to-end suites with deep API integration testing.",
+        role: "QA Automation & Testing",
+        description: "AI recruitment platform — created test plans, cases and scripts from API documentation, validating API functionality against specifications.",
         tech: ["Playwright", "Postman", "API Testing"],
         accent: "from-emerald-500/20 to-teal-500/20",
         ring: "hover:border-emerald-400/50",
     },
+    {
+        title: "Vimient",
+        role: "QA Automation & Testing",
+        description: "Healthcare application — developed automation scripts for web and mobile, working closely with dev and testing teams to identify and resolve issues.",
+        tech: ["Selenium", "Appium", "Mobile Testing"],
+        accent: "from-teal-500/20 to-cyan-500/20",
+        ring: "hover:border-teal-400/50",
+    },
+    {
+        title: "Lineup.ai",
+        role: "QA & Requirements",
+        description: "Forecasting application — validated tickets and stories in a fast-paced Agile environment, refining user stories and defining testable acceptance criteria.",
+        tech: ["Agile", "Acceptance Criteria", "Story Refinement"],
+        accent: "from-amber-500/20 to-orange-500/20",
+        ring: "hover:border-amber-400/50",
+    },
+    {
+        title: "Juicy Drop Merge",
+        role: "Design & Development",
+        description: "A merge-style casual game I designed and developed end-to-end — game mechanics, visuals and gameplay logic built from scratch.",
+        tech: ["Game Design", "Development", "UI/UX"],
+        accent: "from-rose-500/20 to-pink-500/20",
+        ring: "hover:border-rose-400/50",
+    },
+    {
+        title: "SIKE — Mood Prediction",
+        role: "ML Final Year Project",
+        description: "Machine learning system predicting a user's mood from questionnaire responses — implemented and evaluated multiple ML algorithms to classify emotional states.",
+        tech: ["Python", "Machine Learning", "Classification"],
+        accent: "from-purple-500/20 to-violet-500/20",
+        ring: "hover:border-purple-400/50",
+    },
 ];
 
 const CERTIFICATIONS = [
-    "Advanced Cypress",
-    "Advanced Playwright",
-    "Selenium 4 in Java",
-    "Mobile Automation with Appium",
-    "BDD with SpecFlow",
-    "API Security Testing",
-    "API Testing & JMeter Overview",
-    "Web Element Locator Strategies",
-];
-
-const EDUCATION = [
-    {
-        degree: "B.S. in Computer Science",
-        school: "Bahria University, Karachi",
-        period: "2019 – 2023",
-        detail: "CGPA 3.00",
-    },
-    {
-        degree: "Higher Secondary Certificate (Science)",
-        school: "Govt. Degree Science & Commerce College, Malir Cantt.",
-        period: "2018",
-        detail: "Grade B",
-    },
-    {
-        degree: "Secondary School Certificate (Science)",
-        school: "Allied School, Gulshan-e-Hadeed Campus",
-        period: "2016",
-        detail: "Grade A",
-    },
+    { name: "Continuous Integration with Jenkins", issuer: "TestAutomationU", date: "Feb 2025" },
+    { name: "BDD with SpecFlow", issuer: "TestAutomationU", date: "Feb 2025" },
+    { name: "Advanced Playwright", issuer: "TestAutomationU", date: "Oct 2023" },
+    { name: "Selenium 4 in Java", issuer: "TestAutomationU", date: "Sep 2023" },
+    { name: "Advanced Cypress", issuer: "TestAutomationU", date: "May 2023" },
+    { name: "Web Element Locator Strategies", issuer: "TestAutomationU", date: "Apr 2023" },
+    { name: "Mobile Automation with Appium in JavaScript", issuer: "TestAutomationU", date: "Mar 2023" },
+    { name: "API Testing and Basic Overview of JMeter", issuer: "10Pearls University", date: "Mar 2023" },
+    { name: "Automating in the Browser Using JavaScript", issuer: "TestAutomationU", date: "Mar 2023" },
+    { name: "Setting a Foundation for Successful Test Automation", issuer: "TestAutomationU", date: "Mar 2023" },
+    { name: "API Security Testing Guide by The XSS Rat", issuer: "Udemy", date: "Mar 2023" },
 ];
 
 const NAV_LINKS = [
@@ -361,8 +399,8 @@ const Hero = () => (
                 className="mt-6 max-w-2xl mx-auto text-lg text-slate-400 leading-relaxed"
             >
                 I architect scalable automation frameworks across web, mobile and API layers —
-                and pair <span className="text-slate-200 font-medium">Claude Code with Playwright</span> to
-                autonomously generate and maintain end-to-end tests that ship quality faster.
+                and harness <span className="text-slate-200 font-medium">AI-augmented workflows</span> to
+                generate, maintain and scale end-to-end testing that ships quality faster.
             </motion.p>
 
             <motion.div
@@ -449,16 +487,15 @@ function App() {
                 >
                     <p className="text-lg text-slate-400 leading-relaxed">
                         I'm a results-driven <span className="text-slate-200 font-medium">Senior QA Automation Engineer</span> with
-                        4+ years architecting scalable automation frameworks across web, mobile and API layers using
-                        Selenium, Playwright, Cypress and Appium. I've cut test execution time by
-                        <span className="text-cyan-300 font-medium"> 25%</span> and widened coverage through robust,
-                        CI/CD-integrated suites.
+                        5+ years architecting scalable automation frameworks across web, mobile and API layers using
+                        Selenium, Playwright, Cypress and Appium — dramatically accelerating regression cycles and
+                        widening coverage through robust, CI/CD-integrated suites.
                     </p>
                     <p className="mt-5 text-lg text-slate-400 leading-relaxed">
-                        As an early adopter of AI-augmented testing, I pair <span className="text-slate-200 font-medium">Claude Code
-                        with Playwright</span> to autonomously generate and maintain end-to-end tests — accelerating delivery
-                        while keeping quality high. I thrive in fast-paced Agile teams where speed, quality and reliability
-                        drive release confidence.
+                        As an early adopter of <span className="text-slate-200 font-medium">AI-augmented testing</span>, I use
+                        LLM-driven workflows to autonomously generate and maintain end-to-end tests — accelerating delivery
+                        while keeping quality high. From manual exploratory testing to performance validation under load,
+                        I thrive in fast-paced Agile teams where speed, quality and reliability drive release confidence.
                     </p>
                 </motion.div>
             </Section>
@@ -531,8 +568,8 @@ function App() {
             </Section>
 
             {/* PROJECTS */}
-            <Section id="projects" eyebrow="What I've built" title="Featured Projects" className="bg-white/[0.02]">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Section id="projects" eyebrow="What I've worked on" title="Featured Projects" className="bg-white/[0.02]">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {PROJECTS.map((project, i) => (
                         <motion.div
                             key={project.title}
@@ -540,17 +577,25 @@ function App() {
                             initial="hidden"
                             whileInView="show"
                             viewport={{ once: true, margin: "-40px" }}
-                            transition={{ delay: i * 0.1 }}
+                            transition={{ delay: (i % 3) * 0.08 }}
                             whileHover={{ y: -6 }}
                             className={`relative rounded-2xl bg-gradient-to-br ${project.accent} border border-white/10 ${project.ring} p-6 transition-colors duration-300 overflow-hidden`}
                         >
                             <div className="absolute inset-0 bg-slate-950/40" />
                             <div className="relative">
-                                <h3 className="text-2xl font-bold text-white mb-3">{project.title}</h3>
-                                <p className="text-slate-300 leading-relaxed mb-5">{project.description}</p>
+                                <div className="flex items-start justify-between gap-2 mb-2">
+                                    <h3 className="text-xl font-bold text-white">{project.title}</h3>
+                                    {project.role === "Design & Development" && (
+                                        <FaGamepad className="text-rose-300 text-xl shrink-0 mt-1" />
+                                    )}
+                                </div>
+                                <p className="inline-block px-2.5 py-0.5 mb-3 text-xs font-semibold rounded-full bg-white/10 text-cyan-200 border border-white/15">
+                                    {project.role}
+                                </p>
+                                <p className="text-slate-300 text-sm leading-relaxed mb-4">{project.description}</p>
                                 <div className="flex flex-wrap gap-2">
                                     {project.tech.map((t) => (
-                                        <span key={t} className="px-3 py-1 text-xs font-medium rounded-full bg-white/10 text-white border border-white/15">
+                                        <span key={t} className="px-2.5 py-1 text-xs font-medium rounded-full bg-white/10 text-white border border-white/15">
                                             {t}
                                         </span>
                                     ))}
@@ -574,17 +619,18 @@ function App() {
                         <h3 className="flex items-center gap-3 text-xl font-semibold text-white mb-6">
                             <FaGraduationCap className="text-cyan-400" /> Education
                         </h3>
-                        <div className="space-y-4">
-                            {EDUCATION.map((edu) => (
-                                <div key={edu.degree} className="rounded-2xl bg-white/5 border border-white/10 p-5">
-                                    <div className="flex flex-wrap items-baseline justify-between gap-2">
-                                        <h4 className="font-semibold text-white">{edu.degree}</h4>
-                                        <span className="text-sm text-slate-500">{edu.period}</span>
-                                    </div>
-                                    <p className="text-slate-400 text-sm mt-1">{edu.school}</p>
-                                    <p className="text-cyan-300 text-sm mt-1">{edu.detail}</p>
-                                </div>
-                            ))}
+                        <div className="rounded-2xl bg-white/5 border border-white/10 p-6">
+                            <div className="flex flex-wrap items-baseline justify-between gap-2">
+                                <h4 className="text-lg font-semibold text-white">B.S. in Computer Science</h4>
+                                <span className="text-sm text-slate-500">2019 – 2023</span>
+                            </div>
+                            <p className="text-cyan-300 font-medium mt-1">Bahria University, Karachi</p>
+                            <p className="text-slate-400 mt-4 leading-relaxed">
+                                Built a strong engineering foundation across <span className="text-slate-200">data structures &
+                                algorithms, database systems, software engineering, cloud computing, operating systems and
+                                machine learning</span> — culminating in an ML-based final year project (SIKE, mood
+                                prediction) that applied classification algorithms to real behavioral data.
+                            </p>
                         </div>
                     </motion.div>
 
@@ -597,13 +643,16 @@ function App() {
                         transition={{ delay: 0.1 }}
                     >
                         <h3 className="flex items-center gap-3 text-xl font-semibold text-white mb-6">
-                            <FaCertificate className="text-violet-400" /> Certifications
+                            <FaCertificate className="text-violet-400" /> Certifications ({CERTIFICATIONS.length})
                         </h3>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div className="space-y-2.5 max-h-[420px] overflow-y-auto pr-1 cert-scroll">
                             {CERTIFICATIONS.map((cert) => (
-                                <div key={cert} className="flex items-center gap-3 rounded-xl bg-white/5 border border-white/10 p-4">
+                                <div key={cert.name} className="flex items-center gap-3 rounded-xl bg-white/5 border border-white/10 p-3.5 hover:border-violet-400/40 transition-colors">
                                     <FaCertificate className="text-violet-400 shrink-0" />
-                                    <span className="text-sm text-slate-200">{cert}</span>
+                                    <div className="min-w-0 flex-1">
+                                        <p className="text-sm font-medium text-slate-200 leading-snug">{cert.name}</p>
+                                        <p className="text-xs text-slate-500 mt-0.5">{cert.issuer} · {cert.date}</p>
+                                    </div>
                                 </div>
                             ))}
                         </div>
@@ -652,9 +701,14 @@ function App() {
                     <p className="text-sm text-slate-500">
                         © {new Date().getFullYear()} Daniyal Qureshi · Senior QA Automation Engineer
                     </p>
-                    <p className="text-sm text-slate-600">
-                        Built with React, Tailwind & Framer Motion
-                    </p>
+                    <div className="flex gap-4">
+                        <a href="https://www.linkedin.com/in/daniyalquraishi/" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-white transition-colors">
+                            <FaLinkedin className="w-5 h-5" />
+                        </a>
+                        <a href="https://github.com/daniyalquraishi" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-white transition-colors">
+                            <FaGithub className="w-5 h-5" />
+                        </a>
+                    </div>
                 </div>
             </footer>
 
