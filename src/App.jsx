@@ -147,6 +147,14 @@ const PROJECTS = [
         ring: "hover:border-emerald-400/50",
     },
     {
+        title: "Revibe",
+        role: "QA Automation & Testing",
+        description: "Backend + UI test automation wired into Jenkins CI — with Slack and email notifications and a Google Sheets logger reporting automation results after every run.",
+        tech: ["UI Automation", "Backend Automation", "Jenkins", "Slack & Email Alerts", "Google Sheets Logger"],
+        accent: "from-sky-500/20 to-blue-500/20",
+        ring: "hover:border-sky-400/50",
+    },
+    {
         title: "Vimient",
         role: "QA Automation & Testing",
         description: "Healthcare application — developed automation scripts for web and mobile, working closely with dev and testing teams to identify and resolve issues.",
@@ -615,11 +623,12 @@ function App() {
                         initial="hidden"
                         whileInView="show"
                         viewport={{ once: true, margin: "-40px" }}
+                        className="flex flex-col"
                     >
                         <h3 className="flex items-center gap-3 text-xl font-semibold text-white mb-6">
                             <FaGraduationCap className="text-cyan-400" /> Education
                         </h3>
-                        <div className="rounded-2xl bg-white/5 border border-white/10 p-6">
+                        <div className="flex-1 rounded-2xl bg-white/5 border border-white/10 p-6">
                             <div className="flex flex-wrap items-baseline justify-between gap-2">
                                 <h4 className="text-lg font-semibold text-white">B.S. in Computer Science</h4>
                                 <span className="text-sm text-slate-500">2019 – 2023</span>
