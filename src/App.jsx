@@ -17,7 +17,7 @@ const STATS = [
     { value: "5+", label: "Years Experience" },
     { value: "10+", label: "Products Tested" },
     { value: "11", label: "Certifications" },
-    { value: "3", label: "Platforms Automated" },
+    { value: "6+", label: "Automation Frameworks" },
 ];
 
 const SKILL_GROUPS = [
