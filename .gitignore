@@ -1,0 +1,10 @@
+# Dependencies
+node_modules/
+
+# Build tooling caches
+.vite/
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*

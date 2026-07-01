@@ -3,11 +3,13 @@
 @tailwind utilities;
 
 @layer base {
+    html {
+        scroll-behavior: smooth;
+    }
     body {
-        @apply antialiased text-gray-800;
+        @apply antialiased bg-slate-950 text-slate-300;
         margin: 0;
-        font-family: 'Poppins', sans-serif;
-        background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+        font-family: 'Poppins', system-ui, -apple-system, sans-serif;
     }
 }
 
@@ -17,190 +19,32 @@
     }
 }
 
+/* Subtle dot/line grid used behind the hero */
+.bg-grid {
+    background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-size: 44px 44px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 40%, transparent 100%);
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 40%, transparent 100%);
+}
+
+/* Animation delays for the ambient blobs */
+.animation-delay-2000 { animation-delay: 2s; }
+.animation-delay-4000 { animation-delay: 4s; }
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 10px;
 }
-
 ::-webkit-scrollbar-track {
-    @apply bg-gray-100;
+    background: #0f172a;
 }
-
 ::-webkit-scrollbar-thumb {
-    @apply bg-blue-500 rounded-full;
+    background: linear-gradient(to bottom, #22d3ee, #8b5cf6);
+    border-radius: 9999px;
+    border: 2px solid #0f172a;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-    @apply bg-blue-600;
-}
-
-h1, h2 {
-    color: #333;
-}
-
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-}
-
-h2 {
-    font-size: 1.75rem;
-    margin-bottom: 0.5rem;
-}
-
-p {
-    font-size: 1.1rem;
-    color: #555;
-}
-
-.card {
-    background: white;
-    border-radius: 15px;
-    padding: 20px;
-    margin: 20px auto;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
-    max-width: 600px;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
-}
-
-.card-title {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #333;
-    text-align: center;
-}
-
-.card-content {
-    font-size: 1.1rem;
-    color: #555;
-    text-align: left;
-}
-
-button {
-    padding: 10px 20px;
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.6s;
-}
-
-button:hover {
-    background: #0056b3;
-}
-
-.profile-img {
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    margin: 0 auto;
-    margin-bottom: 10px;
-}
-
-.text-center {
-    text-align: center;
-}
-
-@media (max-width: 600px) {
-    h1 {
-        font-size: 1.75rem;
-    }
-
-    h2 {
-        font-size: 1.25rem;
-    }
-
-    p {
-        font-size: 1rem;
-    }
-
-    .container {
-        padding: 10px;
-    }
-}
-
-.animation-delay-2000 {
-  animation-delay: 2s;
-}
-
-.animation-delay-4000 {
-  animation-delay: 4s;
-}
-
-.shadow-colored {
-  box-shadow: 0 4px 14px -1px rgba(59, 130, 246, 0.3);
-}
-
-.bg-grid-white {
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-}
-
-.swiper {
-    width: 100%;
-    padding-top: 30px;
-    padding-bottom: 50px;
-}
-
-.swiper-slide {
-    width: 85% !important;
-    max-width: 400px !important;
-    background-position: center;
-    background-size: cover;
-}
-
-.swiper-button-next,
-.swiper-button-prev {
-    color: #4B5563 !important; /* Gray-600 */
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 50%;
-    transform: scale(0.7);
-}
-
-.swiper-pagination-bullet {
-    background-color: #4B5563 !important;
-}
-
-.swiper-pagination-bullet-active {
-    background-color: #2563EB !important; /* Blue-600 */
-}
-
-/* Ensure proper spacing for coverflow effect */
-.swiper-slide-active {
-    transform-origin: center;
-}
-
-@media (min-width: 640px) {
-    .swiper-slide {
-        width: 70% !important;
-    }
-}
-
-@media (min-width: 1024px) {
-    .swiper-slide {
-        width: 55% !important;
-    }
-}
-
-/* Scroll to top button styles */
-@keyframes gentle-glow {
-    0%, 100% {
-        box-shadow: 0 0 5px rgba(59, 130, 246, 0.1),
-                    0 4px 6px -1px rgba(0, 0, 0, 0.05);
-    }
-    50% {
-        box-shadow: 0 0 8px rgba(59, 130, 246, 0.2),
-                    0 4px 6px -1px rgba(0, 0, 0, 0.05);
-    }
-}
-
-.fixed.bottom-8.right-8 {
-    animation: gentle-glow 3s infinite;
+    background: linear-gradient(to bottom, #06b6d4, #7c3aed);
 }
